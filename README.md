@@ -33,3 +33,58 @@ in your IDE’s toolbar or open the [/iosApp](./iosApp) directory in Xcode and r
 ---
 
 Learn more about [Kotlin Multiplatform](https://www.jetbrains.com/help/kotlin-multiplatform-dev/get-started.html)…
+
+### Tester sur IOS
+Pour pouvoir tester l'app sur ios il faut disposer d'un mac et installer ces outils:
+- Installer [Homebrew](https://brew.sh/fr)
+  ```shell
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  ```
+  Copiez et collez dans une fenetre du terminal.
+  
+  Le script explique ce qu'il av faire, puis fait une pause,
+  avant de l'executer.
+  
+  Generalement il y a plus rien a faire mais si apres l'installation Vous avez l'information :
+  ====> Next steps - qui vous donnera les instructions de ce qu'il faut faire apres (Ajout au path et autre...)
+  Apres brew sera operationnel
+
+-  Installer [JDK17](https://www.oracle.com/java/technologies/downloads/)
+  ```shell
+  brew intstall openjdk@17
+  ```
+  Apres l'installation, il y a une information concernant l'ajout au PATH
+  Au cas ou, cet information est absent, verifiez si elle a ete automatiquement ajouter:
+  
+  sinon il faut faire:
+  ```shell
+  echo 'export PATH="/opt/homebrew/opt/openjdk@17/bin:PATH"' >> ~./zshrc
+  ```
+  Apres:
+  ```shell
+  export CPPFLAGS="-I/opt/homebrew/opt/openjdk@17/include"
+  ```
+  Testez:
+  ```shell
+  java --version
+  javac --version
+  ```
+- Installer [Xcode](https://developper.apple.com/fr/support/xcode/)
+  ```shell
+  xcode-select --install
+  ```
+
+- Installer CocoaPods
+ ```shell
+  brew install cocoapods
+  ```
+  Verfiez l'installation
+  ```shell
+  pod --version
+  ```
+  
+- Installer android studio
+  ```shell
+  brew install --cask android-studio
+  ```
+  Ouvrez android studio, a gauche selectionnez plugin et installez "Kotlin Multiplatform"
